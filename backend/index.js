@@ -1,13 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { createServer } from "http";
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 import cors from "cors";
-
 const DB = process.env.MONGOURI;
 const app = express();
-
+const server = createServer(app);
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(
